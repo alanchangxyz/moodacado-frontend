@@ -5,13 +5,16 @@ import { CookiesProvider } from 'react-cookie';
 
 import './index.css';
 import App from './App';
+import Dashboard from './components/Dashboard'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Route path="/" component={App} exact />
+      <Route path="/dashboard" component={Dashboard} exact />
     </Router>
+  
   </React.StrictMode>,
   document.getElementById('root')
 );
