@@ -4,6 +4,7 @@
 
 .row {
   height: 100vh;
+  overflow-y: hidden;
 }
 
 .col-3 {
@@ -100,9 +101,14 @@
   border-radius: 20px;
 }
 
-.friends {
-  margin-top: 1.5em;
+.friends{
+  margin-top: 2em;
   background-color: white;
-  height: 70%;
+  height: 55%;
+  max-height: 55%;
   border-radius: 20px;
+  padding: 20px !important;
+  overflow-y: auto !important;
+  display: flex;
+  flex-wrap: wrap;
 }

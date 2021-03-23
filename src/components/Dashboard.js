@@ -49,6 +49,13 @@ function Dashboard() {
           </Container>
           <script></script>
           <Container className="friends">
+              <FriendCard name = "Hello"></FriendCard>
+              <FriendCard name = "Hello"></FriendCard>
+              <FriendCard name = "Hello"></FriendCard>
+              <FriendCard name = "Hello"></FriendCard>
+              <FriendCard name = "Hello"></FriendCard>
+              <FriendCard name = "Hello"></FriendCard>
+              <FriendCard name = "Hello"></FriendCard>
             
           </Container>
         </Col>
