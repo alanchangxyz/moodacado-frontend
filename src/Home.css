@@ -1,0 +1,83 @@
+@import './globals.css';
+
+.home-container {
+  background: url(images/home-background.jpg) no-repeat center center fixed, linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5));; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-blend-mode: overlay;
+  min-height: 100%;
+  position: fixed;
+  width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2.byline {
+  padding-top: 20%;
+  margin: 0;
+  font-family: var(--header-font);
+  font-size: 3em;
+  font-weight: 800;
+  text-align: center;
+  color: #ffffff;
+}
+
+.login-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.spotify-login-button {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-spotify-bright-green);
+  color: #ffffff;
+  width: 280px;
+  height: 60px;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: var(--font-family);
+  text-align: center;
+  line-height: 60px;
+  border-radius: 60px;
+}
+
+.spotify-login-button:hover {
+  transition: 0.5s;
+  background-color: var(--color-spotify-dark-green);
+}
+
+.spotify-green-logo {
+  background-image: url(images/spotify-white-transparent.png);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: left center;
+  border: none;
+  border-radius: 60px;
+  width: 55px;
+  background-size: 55px;
+}
+
+span.login-with-spotify {
+  margin-right: 15px;
+}
+
+span.credits {
+  font-family: var(--font-family);
+  text-align: center;
+}
+
+.credits-container {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+}
