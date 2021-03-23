@@ -1,12 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { CookiesProvider } from 'react-cookie';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { CookiesProvider } from "react-cookie";
 
-import './index.css';
-import App from './App';
-import Dashboard from './components/Dashboard'
-import reportWebVitals from './reportWebVitals';
+import "./index.css";
+import App from "./App";
+import Dashboard from "./components/Dashboard";
+import reportWebVitals from "./reportWebVitals";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,9 +16,8 @@ ReactDOM.render(
       <Route path="/" component={App} exact />
       <Route path="/dashboard" component={Dashboard} exact />
     </Router>
-  
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
