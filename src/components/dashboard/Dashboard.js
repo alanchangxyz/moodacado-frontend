@@ -2,7 +2,7 @@ import "./Dashboard.css";
 import React, { useState } from "react";
 import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import FriendCard from "./FriendCard.js";
+import FriendCard from "../friendCards/FriendCard";
 
 function Dashboard() {
   const [headerText, setHeaderText] = useState("Hello!");
