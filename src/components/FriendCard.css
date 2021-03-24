@@ -1,0 +1,33 @@
+.friend-card {
+  background-color:#DBEFEE;
+  width: 23%;
+  min-width: 177px;
+  height: 350px;
+  border-radius: 10px;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #161D6F;
+  display: flex;
+  justify-content: center;
+}
+
+.friend-prof{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5px;
+  vertical-align: middle;
+  padding-left: 0px !important;
+}
+
+.card-subtitle {
+  margin-top: 10px;
+}
+
+.card-img {
+  width: 75%;
+  align-items: center;
+  justify-content: center;
+}
+
