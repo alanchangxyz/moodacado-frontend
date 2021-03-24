@@ -1,0 +1,107 @@
+.Dashboard {
+  text-align: center;
+}
+
+.row {
+  height: 100vh;
+}
+
+.col-3 {
+  background-color: rgb(185, 185, 185);
+  align-items: center;
+  padding-top: 3em;
+  padding-bottom: 1em;
+}
+
+.col-9 {
+  background-color: rgb(231, 231, 231);
+}
+
+.profile-pic {
+  margin: auto;
+  align-items: center;
+  max-width: 100%;
+  justify-content: center;
+}
+
+.recent-activity {
+  padding-top: 6em;
+  align-items: center;
+  text-align: center;
+}
+
+.recent-text {
+  padding-bottom: 1em;
+}
+
+.h1 {
+  font-size: 1.5rem;
+}
+
+.recent-song-card {
+  padding-bottom: 1em;
+  border-radius: 25px;
+  margin: 20px;
+}
+
+.card-img-top {
+  margin: 10px;
+  width: 75%;
+  height: 75%;
+  align-self: center;
+}
+
+.log-out-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.log-out-bg {
+  display: flex;
+  justify-content: center;
+  background-color: gray;
+  color: #ffffff;
+  width: 50%;
+  height: 60px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 60px;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.log-out-button {
+  text-decoration: none;
+  align-items: center;
+  color: white;
+  vertical-align: baseline;
+}
+
+.log-out-button:hover {
+  transition: 0.5s;
+  background-color: gray;
+  text-decoration: none;
+  color: white;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.statusInput {
+  width: 100%;
+  text-align: center;
+  height: 40px;
+}
+
+.friends {
+  margin-top: 5em;
+  background-color: white;
+  width: 100%;
+  height: 75%;
+}

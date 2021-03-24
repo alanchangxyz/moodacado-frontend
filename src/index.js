@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { CookiesProvider } from 'react-cookie';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { CookiesProvider } from "react-cookie";
 
 import './index.css';
 import Home from './Home';
@@ -13,8 +13,9 @@ ReactDOM.render(
       <Router>
         <Route path="/" component={Home} exact />
         <Route path="/login" component={LogIn} />
+        <Route path="/dashboard" component={Dashboard} exact />
       </Router>
     </CookiesProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
