@@ -37,6 +37,15 @@
   flex-direction: column;
 }
 
+.recent-song-card {
+  padding-bottom: 0.5em;
+  border-radius: 15px !important;
+  margin: 15px;
+  width: 60%;
+  background-color: gray !important;
+  color: white;
+}
+
 .recent-text {
   font-size: 1.5rem;
   font-weight: 500;
@@ -46,11 +55,14 @@
   font-size: 1rem;
 }
 
-.recent-song-card {
-  padding-bottom: 0.5em;
-  border-radius: 25px !important;
-  margin: 15px;
-  width: 60%;
+.recent-info {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-recent-title {
+  margin-top: 0px !important;
 }
 
 .card-img-top {
@@ -101,15 +113,45 @@
   border-radius: 20px;
 }
 
+.check-in-btn {
+  border-radius: 10px;
+  font-size: 0.9rem;
+  width: 10%;
+  height: 40px;
+  margin-left: 5px;
+}
+
 .friends {
   margin-top: 2em;
   background-color: white;
   height: 55%;
   max-height: 55%;
-  border-radius: 20px;
+  border-top-left-radius: 20px;    
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 10px;    
+  border-bottom-right-radius: 10px;
   padding: 20px !important;
   overflow-y: auto !important;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

@@ -9,16 +9,25 @@
   margin-top: 20px;
   margin-bottom: 20px;
   color: #fff;
-  align-items: center;
-  align-self: center;
   display: flex;
   justify-content: center;
 }
 
-.friend-name {
-  text-align: center;
+.friend-prof{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5px;
+  vertical-align: middle;
+  padding-left: 0px !important;
 }
 
 .card-subtitle {
   margin-top: 10px;
 }
+
+.card-img {
+  width: 75%;
+  align-items: center;
+  justify-content: center;
+}
+
