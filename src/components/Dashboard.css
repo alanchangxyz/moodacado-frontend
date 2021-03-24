@@ -8,14 +8,14 @@
 }
 
 .col-3 {
-  background-color: rgb(185, 185, 185);
+  background-color: #0c1038;
   align-items: center;
   padding-top: 2em;
   padding-bottom: 1em;
 }
 
 .col-9 {
-  background-color: rgb(231, 231, 231);
+  background-color: #DBEFEE;
 }
 
 .profile-pic {
@@ -42,13 +42,14 @@
   border-radius: 15px !important;
   margin: 15px;
   width: 60%;
-  background-color: gray !important;
-  color: white;
+  background-color: #98DED9 !important;
+  color: #161D6F;
 }
 
 .recent-text {
   font-size: 1.5rem;
   font-weight: 500;
+  color: #98DED9;
 }
 
 .h1 {
@@ -59,6 +60,7 @@
   text-align: left;
   display: flex;
   flex-direction: column;
+  color: #161D6F;
 }
 
 .user-recent-title {
@@ -81,8 +83,8 @@
 .log-out-button {
   display: flex;
   justify-content: center;
-  background-color: gray;
-  color: #ffffff;
+  background-color: #41AEA9;
+  color: #161D6F;
   width: 50%;
   height: 50px;
   font-size: 20px;
@@ -97,33 +99,53 @@
   transition: 0.5s;
   opacity: 75%;
   text-decoration: none;
-  color: white;
+  color: #161D6F;
 }
 
 .welcome {
   display: flex;
   justify-content: center;
   margin-top: 1em;
+  color: #161D6F;
 }
 
 .statusInput {
   width: 100%;
   text-align: center;
   height: 40px;
-  border-radius: 20px;
+  color:#161D6F;
+  background-color: #DBEFEE;
+  border: none;
+  border-bottom: 4px solid #161D6F;
 }
 
 .check-in-btn {
-  border-radius: 10px;
   font-size: 0.9rem;
-  width: 10%;
+  width: 15%;
   height: 40px;
   margin-left: 5px;
+  display: flex;
+  justify-content: center;
+  background-color: #41AEA9 !important;
+  color: #161D6F !important;
+  font-weight: 600 !important;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50px !important;
+  align-items: center;
+  padding: 0px !important;
+}
+
+.check-in-btn:hover {
+  transition: 0.5s;
+  opacity: 75%;
+  text-decoration: none;
+  color: #161D6F;
 }
 
 .friends {
   margin-top: 2em;
-  background-color: white;
+  background-color: #98DED9;
   height: 55%;
   max-height: 55%;
   border-top-left-radius: 20px;    
@@ -135,7 +157,10 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  color:#161D6F;
+
 }
+
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -148,10 +173,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #41aea9;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #2a7e7a;
 }

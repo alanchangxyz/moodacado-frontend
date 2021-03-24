@@ -1,6 +1,6 @@
 import "./Dashboard.css";
 import React, { useState } from "react";
-import { Container, Row, Col, Image, Card } from "react-bootstrap";
+import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import FriendCard from "./FriendCard.js";
 
@@ -56,13 +56,10 @@ function Dashboard() {
               id="status"
               className="statusInput"
             />
-            <button type="button" onClick={setValue} className="check-in-btn">
-              Check In!
-            </button>
+            <Button variant="info" onClick = {setValue} className="check-in-btn">Check In!</Button>{' '}
           </Container>
-
           <Container className="friends">
-            <Container ClassName="friends-recent">
+            <Container className="friends-recent">
               <h3>Your Friends' Recent Activity </h3>
             </Container>
             <FriendCard
