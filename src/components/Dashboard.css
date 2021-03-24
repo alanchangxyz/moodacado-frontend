@@ -48,9 +48,9 @@
 
 .recent-song-card {
   padding-bottom: 0.5em;
-    border-radius: 25px !important;
-    margin: 15px;
-    width: 60%;
+  border-radius: 25px !important;
+  margin: 15px;
+  width: 60%;
 }
 
 .card-img-top {
@@ -101,7 +101,7 @@
   border-radius: 20px;
 }
 
-.friends{
+.friends {
   margin-top: 2em;
   background-color: white;
   height: 55%;
@@ -111,4 +111,5 @@
   overflow-y: auto !important;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
