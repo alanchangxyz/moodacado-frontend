@@ -71,6 +71,7 @@ span.login-with-spotify {
 span.credits {
   font-family: var(--font-family);
   text-align: center;
+  color: #ffffff;
 }
 
 .credits-container {
