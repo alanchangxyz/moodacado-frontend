@@ -1,33 +1,63 @@
+@import '../../globals.css';
+
 .friend-card {
-  background-color:#DBEFEE;
+  background-color: var(--color-mint-green-bg) !important;
   width: 23%;
   min-width: 177px;
-  height: 350px;
+  height: 360px;
   border-radius: 10px;
   margin-left: 1%;
   margin-right: 1%;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: #161D6F;
+  color: var(--color-dark-green);
   display: flex;
   justify-content: center;
 }
 
-.friend-prof{
+.friend-pfp-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   padding-bottom: 5px;
   vertical-align: middle;
   padding-left: 0px !important;
 }
 
-.card-subtitle {
-  margin-top: 10px;
+.friend-pfp {
+  border-radius: 35px;
+  width: 35px;
+  height: 35px;
 }
 
-.card-img {
-  width: 75%;
-  align-items: center;
+.friend-name-container, .friend-recent-image-container, .friend-songname-container, .friend-songartist-container {
+  display: flex;
   justify-content: center;
+  vertical-align: middle;
+  padding-left: 0px !important;
 }
+
+.friend-name {
+  font-size: 1.2em;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.friend-songname {
+  font-size: 1.2em;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.friend-songartist {
+  font-size: 1em;
+  padding-bottom: 10px;
+}
+
+.friend-recent-image {
+  width: 90%;
+  margin-bottom: 15px;
+}
+
 

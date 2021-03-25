@@ -1,21 +1,19 @@
-.Dashboard {
-  text-align: center;
-}
+@import '../../globals.css';
 
 .row {
   height: 100vh;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 .col-3 {
-  background-color: #0c1038;
+  background-color: var(--color-dark-green);
   align-items: center;
   padding-top: 2em;
   padding-bottom: 1em;
 }
 
 .col-9 {
-  background-color: #DBEFEE;
+  background-color: var(--color-mint-green-bg);
 }
 
 .profile-pic {
@@ -23,6 +21,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  width: 25%;
 }
 
 .img-fluid {
@@ -33,6 +32,7 @@
   padding-top: 2em;
   align-items: center;
   text-align: center;
+  font-family: var(--header-font);
   display: flex;
   flex-direction: column;
 }
@@ -41,37 +41,52 @@
   padding-bottom: 0.5em;
   border-radius: 15px !important;
   margin: 15px;
-  width: 60%;
-  background-color: #98DED9 !important;
-  color: #161D6F;
+  width: 90%;
+  background-color: var(--color-sea-green) !important;
+  color: var(--color-dark-green);
 }
 
 .recent-text {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 500;
-  color: #98DED9;
+  color: var(--color-sea-green);
 }
 
 .h1 {
   font-size: 1rem;
+  
 }
 
 .recent-info {
   text-align: left;
   display: flex;
   flex-direction: column;
-  color: #161D6F;
+  color: var(--color-dark-green);
+  
 }
 
 .user-recent-title {
-  margin-top: 0px !important;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.user-recent-artist {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.1em;
+  margin-bottom: 5px;
 }
 
 .card-img-top {
-  margin: 10px;
+  margin: 18px;
+  margin-bottom: 10px;
   width: 75% !important;
   height: 75%;
   align-self: center;
+  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .log-out-container {
@@ -83,84 +98,103 @@
 .log-out-button {
   display: flex;
   justify-content: center;
-  background-color: #41AEA9;
-  color: #161D6F;
+  background-color: var(--color-spotify-bright-green);
+  color: #FFFF;
   width: 50%;
-  height: 50px;
+  height: 40px;
   font-size: 20px;
+  font-family: var(--font-family);
   font-weight: 600;
   text-align: center;
-  line-height: 50px;
+  line-height: 40px;
   border-radius: 60px;
   align-items: center;
+  margin-top: 5px;
+  border: none;
 }
 
 .log-out-button:hover {
   transition: 0.5s;
-  opacity: 75%;
+  background-color: var(--color-spotify-dark-green);
   text-decoration: none;
-  color: #161D6F;
+  color: #FFFF;
 }
 
 .welcome {
   display: flex;
   justify-content: center;
   margin-top: 1em;
-  color: #161D6F;
+  color: var(--color-dark-green);
+  font-family: var(--header-font);
+  font-weight: 800 !important;
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .statusInput {
   width: 100%;
   text-align: center;
   height: 40px;
-  color:#161D6F;
-  background-color: #DBEFEE;
+  color:var(--color-dark-green);
+  background-color: var(--color-mint-green-bg);
   border: none;
-  border-bottom: 4px solid #161D6F;
+  border-bottom: 4px solid var(--color-dark-green);
 }
 
 .check-in-btn {
   font-size: 0.9rem;
   width: 15%;
   height: 40px;
-  margin-left: 5px;
+  margin-left: 15px;
   display: flex;
   justify-content: center;
-  background-color: #41AEA9 !important;
-  color: #161D6F !important;
+  background-color: var(--color-spotify-bright-green) !important;
+  color: #ffffff !important;
   font-weight: 600 !important;
   text-align: center;
   line-height: 50px;
   border-radius: 50px !important;
   align-items: center;
   padding: 0px !important;
+  border: none !important;
 }
 
 .check-in-btn:hover {
   transition: 0.5s;
-  opacity: 75%;
+  background-color: var(--color-spotify-dark-green) !important;
   text-decoration: none;
-  color: #161D6F;
 }
 
 .friends {
   margin-top: 2em;
-  background-color: #98DED9;
-  height: 55%;
-  max-height: 55%;
+  background-color: var(--color-sea-green);
+  height: 75%;
+  width: 90%;
   border-top-left-radius: 20px;    
   border-bottom-left-radius: 20px;
   border-top-right-radius: 10px;    
   border-bottom-right-radius: 10px;
   padding: 20px !important;
-  overflow-y: auto !important;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  color:#161D6F;
-
+  color:var(--color-dark-green);
+  font-family: var(--header-font);
+  overflow-y: auto; 
+  position: sticky;
 }
 
+.inner-friend-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -173,10 +207,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #41aea9;
+  background: #309269;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a7e7a;
+  background: var(--color-dark-green);
 }
