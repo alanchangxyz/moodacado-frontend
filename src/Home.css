@@ -17,6 +17,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: none !important;
+}
+
 h2.byline {
   padding-top: 20%;
   margin: 0;
