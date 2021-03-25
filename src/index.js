@@ -6,7 +6,7 @@ import { CookiesProvider } from "react-cookie";
 import './index.css';
 import Home from './Home';
 import LogIn from './components/login/login';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/dashboard/Dashboard';
 
 ReactDOM.render(
   <React.StrictMode>
