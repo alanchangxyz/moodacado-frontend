@@ -185,8 +185,6 @@
   align-items: center;
   color:var(--color-dark-green);
   font-family: var(--header-font);
-  overflow-y: auto; 
-  position: sticky;
 }
 
 .inner-friend-container {
@@ -194,6 +192,9 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
+  overflow-y: auto;
+  height: 90%;
+  margin-bottom: 20px;
 }
 
 ::-webkit-scrollbar {
