@@ -27,11 +27,14 @@ const LogIn = (cookies) => {
         }, {});
     
     useEffect(() => {
+        if (!('access_token' in hash)) {
+            history.replace("/");
+        }
         const instance = axios.create({
             baseURL: `${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}/`,
             withCredentials: true,
         });
-        instance.post("/auth/checkin")
+        instance.post("/auth/checkin", {'token': hash.access_token})
           .then((response) => {
             setRes(response.data);
           })
@@ -47,7 +50,6 @@ const LogIn = (cookies) => {
             history.replace("/");
         }
         else if (Object.keys(hash).length > 0) {
-            // to do: check for valid token, pass state in and check in return
             if ('expires_in' in hash) {
                 console.log(res);
                 if (res) {
