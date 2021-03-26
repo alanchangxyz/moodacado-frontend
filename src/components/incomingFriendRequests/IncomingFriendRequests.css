@@ -1,5 +1,10 @@
 @import '../../globals.css';
 
+.ifr-container {
+    display: flex;
+    justify-content: center;
+}
+
 .incoming-friend-requests-container {
     background-color: var(--color-sea-green);
     font-family: var(--header-font);
@@ -8,6 +13,8 @@
     padding-left: 35px;
     margin-top: 20px;
     padding-bottom: 20px;
+    width: 100%;
+    max-width: 1140px;
 }
 
 .incoming-friend-request-texts-container {

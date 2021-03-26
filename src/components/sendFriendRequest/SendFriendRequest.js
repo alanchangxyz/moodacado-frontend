@@ -32,26 +32,28 @@ const SendFriendRequest = (prop) => {
     }
 
       return (
-        <div className="send-friend-request-container">
-            <div className="send-friend-request-text-container">
-                <span className="send-friend-request-text">Send a Friend Request</span>
+        <div className="sfr-container">
+            <div className="send-friend-request-container">
+                <div className="send-friend-request-text-container">
+                    <span className="send-friend-request-text">Send a Friend Request</span>
+                </div>
+                <div className="friend-request-form-container">
+                    <input
+                        type="text"
+                        className="user-id-search"
+                        placeholder="Enter a user's ID to send a friend request..."
+                        value={searchId}
+                        onChange={handleChange}
+                    />
+                    <button
+                        className="submit-friend-request-button"
+                        onClick={handleOnSubmit}
+                    >
+                        Submit
+                    </button>
+                </div>
+                <span className="progress-notif">{sendProgress ? sendProgress : ''}</span>
             </div>
-            <div className="friend-request-form-container">
-                <input
-                    type="text"
-                    className="user-id-search"
-                    placeholder="Enter a user's ID to send a friend request..."
-                    value={searchId}
-                    onChange={handleChange}
-                />
-                <button
-                    className="submit-friend-request-button"
-                    onClick={handleOnSubmit}
-                >
-                    Submit
-                </button>
-            </div>
-            <span className="progress-notif">{sendProgress ? sendProgress : ''}</span>
         </div>
     )
 
