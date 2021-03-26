@@ -91,8 +91,8 @@ function Dashboard(cookies) {
             />
             <Button onClick = {setValue} className="check-in-btn">Check In!</Button>{' '}
           </div> */}
-          <SendFriendRequest user={userProfile ? userProfile.id : null} />
-          <IncomingFriendRequests user={userProfile ? userProfile.id : null} />          
+          <SendFriendRequest user={userProfile ? userProfile.user_id : null} />
+          <IncomingFriendRequests user={userProfile ? userProfile.user_id : null} />          
           <Container className="friends">
             <Container className="friends-recent">
               <h3>Your Friends' Recent Activity </h3>
