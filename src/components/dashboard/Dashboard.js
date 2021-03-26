@@ -5,6 +5,7 @@ import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import FriendCard from "../friendCards/FriendCard";
 import SendFriendRequest from "../sendFriendRequest/SendFriendRequest";
+import IncomingFriendRequests from "../incomingFriendRequests/IncomingFriendRequests";
 import { withCookies, Cookies } from 'react-cookie';
 import { instanceOf } from 'prop-types';
 import axios from "axios";
@@ -91,7 +92,8 @@ function Dashboard(cookies) {
             />
             <Button onClick = {setValue} className="check-in-btn">Check In!</Button>{' '}
           </div> */}
-          <SendFriendRequest user={userProfile ? userProfile.id : null} />          
+          <SendFriendRequest user={userProfile ? userProfile.id : null} />
+          <IncomingFriendRequests user={userProfile ? userProfile.id : null} />          
           <Container className="friends">
           <Container className="friends-recent">
               <h3>Your Friends' Recent Activity </h3>
