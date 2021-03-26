@@ -1,0 +1,37 @@
+@import '../../globals.css';
+
+.ifr-container {
+    display: flex;
+    justify-content: center;
+}
+
+.incoming-friend-requests-container {
+    background-color: var(--color-sea-green);
+    font-family: var(--header-font);
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 35px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    max-width: 1140px;
+}
+
+.incoming-friend-request-texts-container {
+    margin-top: 5px;
+    width: 80%;
+    margin-bottom: 5px;
+}
+
+.incoming-friend-requests-text {
+    font-family: var(--header-font);
+    font-weight: 500;
+    font-size: 1.75em;
+    color: var(--color-dark-green);
+}
+
+.incoming-friend-requests-cells-container {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}

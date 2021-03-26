@@ -4,8 +4,10 @@ import { useHistory } from "react-router-dom";
 import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import FriendCard from "../friendCards/FriendCard";
-import { withCookies, Cookies } from "react-cookie";
-import { instanceOf } from "prop-types";
+import SendFriendRequest from "../sendFriendRequest/SendFriendRequest";
+import IncomingFriendRequests from "../incomingFriendRequests/IncomingFriendRequests";
+import { withCookies, Cookies } from 'react-cookie';
+import { instanceOf } from 'prop-types';
 import axios from "axios";
 
 function Dashboard(cookies) {
@@ -92,12 +94,13 @@ function Dashboard(cookies) {
           </Container>
         </Col>
         <Col className="col-9">
-          <Container className="welcome">
-            <h1 id="hello-name">
-              {userProfile === null ? "Hello!" : `Hello ${userProfile.disp_name}!`}
-            </h1>
-          </Container>
-          <div className="welcome-container">
+          <div className="welcome">
+            <h1 id="hello-name">{userProfile === null ? "Hello!" : `Hello ${userProfile.disp_name}!`}</h1>
+          </div>
+          <div className="user-id-container">
+            <span className="user-id-span">{userProfile === null ? '' : `Your user ID is ${userProfile.user_id}`}</span>
+          </div>
+          {/* <div className="welcome-container">
             <input
               name="status"
               placeholder="How are you feeling right now?"
@@ -106,10 +109,10 @@ function Dashboard(cookies) {
               id="status"
               className="statusInput"
             />
-            <Button onClick={setValue} className="check-in-btn">
-              Check In!
-            </Button>{" "}
-          </div>
+            <Button onClick = {setValue} className="check-in-btn">Check In!</Button>{' '}
+          </div> */}
+          <SendFriendRequest user={userProfile ? userProfile.user_id : null} />
+          <IncomingFriendRequests user={userProfile ? userProfile.user_id : null} />          
           <Container className="friends">
             <Container className="friends-recent">
               <h3>Your Friends' Recent Activity </h3>
