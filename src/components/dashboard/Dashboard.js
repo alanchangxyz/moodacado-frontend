@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import FriendCard from "../friendCards/FriendCard";
+import SendFriendRequest from "../sendFriendRequest/SendFriendRequest";
 import { withCookies, Cookies } from 'react-cookie';
 import { instanceOf } from 'prop-types';
 import axios from "axios";
@@ -73,10 +74,13 @@ function Dashboard(cookies) {
           </Container>
         </Col>
         <Col className="col-9">
-          <Container className="welcome">
+          <div className="welcome">
             <h1 id="hello-name">{userProfile === null ? "Hello!" : `Hello ${userProfile.display_name}!`}</h1>
-          </Container>
-          <div className="welcome-container">
+          </div>
+          <div className="user-id-container">
+            <span className="user-id-span">{userProfile === null ? '' : `Your user ID is ${userProfile.id}`}</span>
+          </div>
+          {/* <div className="welcome-container">
             <input
               name="status"
               placeholder="How are you feeling right now?"
@@ -86,7 +90,8 @@ function Dashboard(cookies) {
               className="statusInput"
             />
             <Button onClick = {setValue} className="check-in-btn">Check In!</Button>{' '}
-          </div>
+          </div> */}
+          <SendFriendRequest user={userProfile ? userProfile.id : null} />          
           <Container className="friends">
           <Container className="friends-recent">
               <h3>Your Friends' Recent Activity </h3>
