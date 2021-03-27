@@ -68,7 +68,7 @@ function Dashboard(cookies) {
           <Container className="profile-pic">
             <Image
               fluid
-              src={userProfile === null ? "" : userProfile.pfp}
+              src={userProfile ? userProfile.pfp : ""}
               roundedCircle
             />
           </Container>
@@ -78,12 +78,12 @@ function Dashboard(cookies) {
             <Card className="recent-song-card">
               <Card.Img
                 variant="top"
-                src={userProfile === null ? "" : userProfile.img_url}
+                src={userProfile ? userProfile.img_url : "" }
                 rounded="true"
               />
               <Container className="recent-info">
-                <span className="user-recent-title">{userProfile === null ? "" : userProfile.song_name}</span>
-                <span className="user-recent-artist">{userProfile === null ? "" : userProfile.song_artist}</span>
+                <span className="user-recent-title">{userProfile ? userProfile.song_name : "" }</span>
+                <span className="user-recent-artist">{userProfile ? userProfile.song_artist : ""}</span>
               </Container>
             </Card>
           </Container>
@@ -95,10 +95,10 @@ function Dashboard(cookies) {
         </Col>
         <Col className="col-9">
           <div className="welcome">
-            <h1 id="hello-name">{userProfile === null ? "Hello!" : `Hello ${userProfile.disp_name}!`}</h1>
+            <h1 id="hello-name">{userProfile ? `Hello ${userProfile.disp_name}!`: "Hello!"}</h1>
           </div>
           <div className="user-id-container">
-            <span className="user-id-span">{userProfile === null ? '' : `Your user ID is ${userProfile.user_id}`}</span>
+            <span className="user-id-span">{userProfile ? `Your user ID is ${userProfile.user_id}` : ''}</span>
           </div>
           {/* <div className="welcome-container">
             <input
