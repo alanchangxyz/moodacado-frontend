@@ -12,15 +12,15 @@ import axios from "axios";
 
 function Dashboard(cookies) {
   const history = useHistory();
-  const [inputText, setInputText] = useState("");
+  // const [inputText, setInputText] = useState("");
   const [userProfile, setUserProfile] = useState(null);
   const [userFriends, setUserFriends] = useState(<h1>No current friends logged</h1>);
   const userToken = cookies.cookies.get("spotifyToken");
 
-  const setValue = () => {
-    let userInput = document.getElementById("status").value;
-    setInputText(userInput);
-  };
+  // const setValue = () => {
+  //   let userInput = document.getElementById("status").value;
+  //   setInputText(userInput);
+  // };
 
   const instance = axios.create({
     baseURL: `${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}`,
@@ -48,7 +48,7 @@ function Dashboard(cookies) {
       .then((response) => {
           let friends = response.data;
           if (friends.length !== 0) {
-            setUserFriends(friends.map(function(friend, i){
+            setUserFriends(friends.map( (friend, i) => {
               return <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} ></FriendCard>;   
             }));
           } else {
