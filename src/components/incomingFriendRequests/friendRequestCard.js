@@ -26,24 +26,26 @@ const IncomingFriendRequests = (prop) => {
     return !handled ? (
     <div className="incoming-request-container">
         <table>
-            <tr>
-                <td className="incoming-request-pfp-container">
-                    <img className="incoming-request-pfp" src={user.pfp} />
-                </td>
-                <td>
-                    <span className="incoming-request-name">
-                        {user.disp_name}{user.user_id.length > 15 ? " (" + user.user_id.substring(0, 15) + "...)" : " (" + user.user_id + ")"}
-                    </span>
-                </td>
-                <td className="handle-buttons-container">
-                    <button className='reject-friend-request' value='reject' onClick={handleFriendRequest}>
-                        x
-                    </button>
-                    <button className='accept-friend-request' value='accept' onClick={handleFriendRequest}>
-                        ✓
-                    </button>
-                </td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td className="incoming-request-pfp-container">
+                        <img className="incoming-request-pfp" src={user.pfp} />
+                    </td>
+                    <td>
+                        <span className="incoming-request-name">
+                            {user.disp_name}{user.user_id.length > 15 ? " (" + user.user_id.substring(0, 15) + "...)" : " (" + user.user_id + ")"}
+                        </span>
+                    </td>
+                    <td className="handle-buttons-container">
+                        <button className='reject-friend-request' value='reject' onClick={handleFriendRequest}>
+                            x
+                        </button>
+                        <button className='accept-friend-request' value='accept' onClick={handleFriendRequest}>
+                            ✓
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>) : null;
 }
