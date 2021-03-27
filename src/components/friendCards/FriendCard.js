@@ -7,7 +7,7 @@ function FriendCard(props) {
     <Card className="friend-card">
       <Card.Body>
         <div className = "friend-pfp-container">
-          <img className="friend-pfp" src={props.albumcover} />         
+          <img className="friend-pfp" src={props.profilePicture} />         
         </div>
         <div className = "friend-name-container">
           <span className="friend-name">{props.name}</span>
