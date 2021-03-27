@@ -32,7 +32,7 @@ const IncomingFriendRequests = (prop) => {
                 </td>
                 <td>
                     <span className="incoming-request-name">
-                        {user.disp_name}
+                        {user.disp_name}{user.user_id.length > 15 ? " (" + user.user_id.substring(0, 15) + "...)" : " (" + user.user_id + ")"}
                     </span>
                 </td>
                 <td className="handle-buttons-container">
