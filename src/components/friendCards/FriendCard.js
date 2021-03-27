@@ -15,6 +15,9 @@ function FriendCard(props) {
         <div className="friend-recent-image-container">
           <img className = "friend-recent-image" src={props.albumcover} />
         </div>
+        <div className='emotion-text-container'>
+            <span className='emotion-text'>{props.emotion ? props.emotion : ''}</span>
+        </div>
         <div className = "friend-songname-container">
           <span className="friend-songname">{props.song}</span>
         </div>
