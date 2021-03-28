@@ -1,11 +1,14 @@
 @import "../../globals.css";
 
 .logo {
-  padding-top: 15px;
+  margin: 0%;
   padding-bottom: 10px;
   background-color: transparent;
   display: block;
   margin: auto;
+  /* position: -webkit-sticky;
+  position: sticky;
+  bottom: 0; */
 }
 
 .row {

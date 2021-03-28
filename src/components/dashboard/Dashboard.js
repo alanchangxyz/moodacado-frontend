@@ -16,7 +16,9 @@ function Dashboard(cookies) {
   // const [inputText, setInputText] = useState("");
   const [userProfile, setUserProfile] = useState(null);
   const [userFriends, setUserFriends] = useState(null);
-  const [userFriendCards, setUserFriendCards] = useState(<h1>No friends found</h1>)
+  const [userFriendCards, setUserFriendCards] = useState(
+    <h1>No friends found</h1>
+  );
   const userToken = cookies.cookies.get("spotifyToken");
 
   // const setValue = () => {
@@ -34,14 +36,15 @@ function Dashboard(cookies) {
   // });
 
   useEffect(() => {
-    instance.post("/profile/", {'token': userToken})
-    .then((response) => {
+    instance
+      .post("/profile/", { token: userToken })
+      .then((response) => {
         setUserProfile(response.data[0]);
       })
-    .catch((err) => {
-      console.log(err.message);
-    });
-    }, []);
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
 
   const logOut = () => {
     cookies.cookies.remove("spotifyToken");
@@ -61,7 +64,8 @@ function Dashboard(cookies) {
 
   useEffect(() => {
     if (userProfile) {
-      instance.post("/profile/friends", {'user_id': userProfile.user_id})
+      instance
+        .post("/profile/friends", { user_id: userProfile.user_id })
         .then((response) => {
           let friends = response.data;
           if (friends.length !== 0) {
@@ -69,27 +73,44 @@ function Dashboard(cookies) {
           }
         })
         .catch((err) => {
-            console.log(err.message);
+          console.log(err.message);
         });
-    }    
+    }
   }, [userProfile]);
 
   useEffect(async () => {
-    if (!userFriends) {return;}
-    console.log('this ran');
+    if (!userFriends) {
+      return;
+    }
+    console.log("this ran");
     console.log(userFriends);
     const getSongFeatures = async (f, i) => {
-      const query = await instance.post("/songs/features", {'token': userToken, 'songs': [f.song_id]});
-      return <FriendCard key={i} name={f.disp_name} profilePicture={f.pfp} song={f.song_name} artist={f.song_artist} albumcover={f.img_url} emotion={query.data[0]} />
-    }
-    let friends = await Promise.all(userFriends.map((friend, i) => getSongFeatures(friend, i)));
+      const query = await instance.post("/songs/features", {
+        token: userToken,
+        songs: [f.song_id],
+      });
+      return (
+        <FriendCard
+          key={i}
+          name={f.disp_name}
+          profilePicture={f.pfp}
+          song={f.song_name}
+          artist={f.song_artist}
+          albumcover={f.img_url}
+          emotion={query.data[0]}
+        />
+      );
+    };
+    let friends = await Promise.all(
+      userFriends.map((friend, i) => getSongFeatures(friend, i))
+    );
     console.log(friends);
     setUserFriendCards(friends);
     console.log(userFriendCards);
     // friends = await Promise.all(friends.map(async (friend, i) => {
     //   instance.post("/songs/features", {'token': userToken, 'songs': [friend.song_id]})
     //     .then((response2) => {
-    //         let f = <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} emotion={response2.data[0]} />;   
+    //         let f = <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} emotion={response2.data[0]} />;
     //         console.log(f);
     //         return f;
     //     })
@@ -105,7 +126,7 @@ function Dashboard(cookies) {
   //     userFriends = userFriends.map((friend, i) => {
   //       instance.post("/audio/features", {'token': userToken, 'songs': [friend.song_id]})
   //         .then((response) => {
-  //             return <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} emotion={response.data[0]} />;   
+  //             return <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} emotion={response.data[0]} />;
   //         })
   //         .catch((err) => {
   //             console.log(err.message);
@@ -113,10 +134,9 @@ function Dashboard(cookies) {
   //     });
   //   }
   //   // friends.map( (friend, i) => {
-  //   //   return <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} ></FriendCard>;   
+  //   //   return <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} ></FriendCard>;
   //   // })
   // }, [userFriends]);
-
 
   return (
     <Container fluid>
@@ -135,15 +155,15 @@ function Dashboard(cookies) {
             <Card className="recent-song-card">
               <Card.Img
                 variant="top"
-                src={userProfile ? userProfile.img_url : "" }
+                src={userProfile ? userProfile.img_url : ""}
                 rounded="true"
               />
               <Container className="recent-info">
                 <span className="user-recent-title">
-                  {userProfile === null ? "" : userProfile.song_name}
+                  {userProfile ? userProfile.song_name : ""}
                 </span>
                 <span className="user-recent-artist">
-                  {userProfile === null ? "" : userProfile.song_artist}
+                  {userProfile ? userProfile.song_artist : ""}
                 </span>
               </Container>
             </Card>
@@ -159,16 +179,12 @@ function Dashboard(cookies) {
         <Col className="col-9">
           <div className="welcome">
             <h1 id="hello-name">
-              {userProfile === null
-                ? "Hello!"
-                : `Hello ${userProfile.disp_name}!`}
+              {userProfile ? `Hello ${userProfile.disp_name}!` : "Hello!"}
             </h1>
           </div>
           <div className="user-id-container">
             <span className="user-id-span">
-              {userProfile === null
-                ? ""
-                : `Your user ID is ${userProfile.user_id}`}
+              {userProfile ? `Your user ID is ${userProfile.user_id}` : ""}
             </span>
           </div>
           {/* <div className="welcome-container">

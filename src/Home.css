@@ -1,7 +1,8 @@
-@import './globals.css';
+@import "./globals.css";
 
 .home-container {
-  background: url(images/home-background.jpg) no-repeat center center fixed, linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5));; 
+  background: url(images/home-background.jpg) no-repeat center center fixed,
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -22,8 +23,9 @@ a:hover {
 }
 
 h2.byline {
-  padding-top: 20%;
+  padding-top: 0%;
   margin: 0;
+  margin-top: 7%;
   font-family: var(--header-font);
   font-size: 3em;
   font-weight: 800;
@@ -66,6 +68,18 @@ h2.byline {
   border-radius: 60px;
   width: 55px;
   background-size: 55px;
+}
+
+.moodacado-logo {
+  background-image: url(images/Moodacado-Logo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20%;
+  margin-top: 150px;
+  margin-bottom: 25px;
+  padding-bottom: 20%;
+
+  /* height: 75%; */
 }
 
 span.login-with-spotify {
