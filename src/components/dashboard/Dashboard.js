@@ -6,9 +6,10 @@ import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 import FriendCard from "../friendCards/FriendCard";
 import SendFriendRequest from "../sendFriendRequest/SendFriendRequest";
 import IncomingFriendRequests from "../incomingFriendRequests/IncomingFriendRequests";
-import { withCookies, Cookies } from 'react-cookie';
-import { instanceOf } from 'prop-types';
+import { withCookies, Cookies } from "react-cookie";
+import { instanceOf } from "prop-types";
 import axios from "axios";
+import logo from "../../images/Moodacado-Logo.png";
 
 function Dashboard(cookies) {
   const history = useHistory();
@@ -138,8 +139,12 @@ function Dashboard(cookies) {
                 rounded="true"
               />
               <Container className="recent-info">
-                <span className="user-recent-title">{userProfile ? userProfile.song_name : "" }</span>
-                <span className="user-recent-artist">{userProfile ? userProfile.song_artist : ""}</span>
+                <span className="user-recent-title">
+                  {userProfile === null ? "" : userProfile.song_name}
+                </span>
+                <span className="user-recent-artist">
+                  {userProfile === null ? "" : userProfile.song_artist}
+                </span>
               </Container>
             </Card>
           </Container>
@@ -148,13 +153,23 @@ function Dashboard(cookies) {
               Log out
             </button>
           </Container>
+          <Image className="logo" fluid src={logo} roundedCircle />
         </Col>
+
         <Col className="col-9">
           <div className="welcome">
-            <h1 id="hello-name">{userProfile ? `Hello ${userProfile.disp_name}!`: "Hello!"}</h1>
+            <h1 id="hello-name">
+              {userProfile === null
+                ? "Hello!"
+                : `Hello ${userProfile.disp_name}!`}
+            </h1>
           </div>
           <div className="user-id-container">
-            <span className="user-id-span">{userProfile ? `Your user ID is ${userProfile.user_id}` : ''}</span>
+            <span className="user-id-span">
+              {userProfile === null
+                ? ""
+                : `Your user ID is ${userProfile.user_id}`}
+            </span>
           </div>
           {/* <div className="welcome-container">
             <input
@@ -168,7 +183,9 @@ function Dashboard(cookies) {
             <Button onClick = {setValue} className="check-in-btn">Check In!</Button>{' '}
           </div> */}
           <SendFriendRequest user={userProfile ? userProfile.user_id : null} />
-          <IncomingFriendRequests user={userProfile ? userProfile.user_id : null} />          
+          <IncomingFriendRequests
+            user={userProfile ? userProfile.user_id : null}
+          />
           <Container className="friends">
             <Container className="friends-recent">
               <h3>Your Friends' Recent Activity </h3>
