@@ -15,9 +15,14 @@ function Dashboard(cookies) {
   const history = useHistory();
   // const [inputText, setInputText] = useState("");
   const [userProfile, setUserProfile] = useState(null);
+<<<<<<< HEAD
   const [userFriends, setUserFriends] = useState(
     <h1>No current friends logged</h1>
   );
+=======
+  const [userFriends, setUserFriends] = useState(null);
+  const [userFriendCards, setUserFriendCards] = useState(<h1>No friends found</h1>)
+>>>>>>> 47e33966bb2ca0bfc66b7abe04cc11698955abfa
   const userToken = cookies.cookies.get("spotifyToken");
 
   // const setValue = () => {
@@ -30,24 +35,46 @@ function Dashboard(cookies) {
     withCredentials: true,
   });
 
+<<<<<<< HEAD
   useEffect(() => {
     instance
       .post("/profile/", { token: userToken })
       .then((response) => {
+=======
+  // const model = axios.create({
+  //   baseURL: `${process.env.REACT_APP_MODEL_HOST}:${process.env.REACT_APP_MODEL_PORT}`,
+  // });
+
+  useEffect(() => {
+    instance.post("/profile/", {'token': userToken})
+    .then((response) => {
+>>>>>>> 47e33966bb2ca0bfc66b7abe04cc11698955abfa
         setUserProfile(response.data[0]);
       })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
+    .catch((err) => {
+      console.log(err.message);
+    });
+    }, []);
 
   const logOut = () => {
     cookies.cookies.remove("spotifyToken");
     history.push("/");
   };
 
+  // const modelTest = () => {
+  //   model.get('/model')
+  //   .then((response) => {
+  //       var result = response.data;
+  //       return result;
+  //     },
+  //     (error) => {
+  //         console.log(error);
+  //   });
+  // }
+
   useEffect(() => {
     if (userProfile) {
+<<<<<<< HEAD
       instance
         .post("/profile/friends", { user_id: userProfile.user_id })
         .then((response) => {
@@ -75,7 +102,64 @@ function Dashboard(cookies) {
           console.log(err.message);
         });
     }
+=======
+      instance.post("/profile/friends", {'user_id': userProfile.user_id})
+        .then((response) => {
+          let friends = response.data;
+          if (friends.length !== 0) {
+            setUserFriends(friends);
+          }
+        })
+        .catch((err) => {
+            console.log(err.message);
+        });
+    }    
+>>>>>>> 47e33966bb2ca0bfc66b7abe04cc11698955abfa
   }, [userProfile]);
+
+  useEffect(async () => {
+    if (!userFriends) {return;}
+    console.log('this ran');
+    console.log(userFriends);
+    const getSongFeatures = async (f, i) => {
+      const query = await instance.post("/songs/features", {'token': userToken, 'songs': [f.song_id]});
+      return <FriendCard key={i} name={f.disp_name} profilePicture={f.pfp} song={f.song_name} artist={f.song_artist} albumcover={f.img_url} emotion={query.data[0]} />
+    }
+    let friends = await Promise.all(userFriends.map((friend, i) => getSongFeatures(friend, i)));
+    console.log(friends);
+    setUserFriendCards(friends);
+    console.log(userFriendCards);
+    // friends = await Promise.all(friends.map(async (friend, i) => {
+    //   instance.post("/songs/features", {'token': userToken, 'songs': [friend.song_id]})
+    //     .then((response2) => {
+    //         let f = <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} emotion={response2.data[0]} />;   
+    //         console.log(f);
+    //         return f;
+    //     })
+    //     .catch((err) => {
+    //         console.log(err.message);
+    //     });
+    // }))
+  }, [userFriends]);
+
+  // useEffect(() => {
+  //   console.log(userFriends);
+  //   if (userFriends) {
+  //     userFriends = userFriends.map((friend, i) => {
+  //       instance.post("/audio/features", {'token': userToken, 'songs': [friend.song_id]})
+  //         .then((response) => {
+  //             return <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} emotion={response.data[0]} />;   
+  //         })
+  //         .catch((err) => {
+  //             console.log(err.message);
+  //         });
+  //     });
+  //   }
+  //   // friends.map( (friend, i) => {
+  //   //   return <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} ></FriendCard>;   
+  //   // })
+  // }, [userFriends]);
+
 
   return (
     <Container fluid>
@@ -146,7 +230,7 @@ function Dashboard(cookies) {
               <h3>Your Friends' Recent Activity </h3>
             </Container>
             <Container className="inner-friend-container">
-              {userFriends}
+              {userFriendCards ? userFriendCards : null}
             </Container>
           </Container>
         </Col>
