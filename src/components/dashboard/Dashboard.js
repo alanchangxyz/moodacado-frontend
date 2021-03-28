@@ -27,6 +27,10 @@ function Dashboard(cookies) {
     withCredentials: true,
   });
 
+  // const model = axios.create({
+  //   baseURL: `${process.env.REACT_APP_MODEL_HOST}:${process.env.REACT_APP_MODEL_PORT}`,
+  // });
+
   useEffect(() => {
     instance.post("/profile/", {'token': userToken})
     .then((response) => {
@@ -42,17 +46,34 @@ function Dashboard(cookies) {
     history.push("/");
   };
 
+  // const modelTest = () => {
+  //   model.get('/model')
+  //   .then((response) => {
+  //       var result = response.data;
+  //       return result;
+  //     },
+  //     (error) => {
+  //         console.log(error);
+  //   });
+  // }
+
   useEffect(() => {
-    if(userProfile){
+    if (userProfile) {
       instance.post("/profile/friends", {'user_id': userProfile.user_id})
       .then((response) => {
-          let friends = response.data;
+          const friends = response.data;
           if (friends.length !== 0) {
-            setUserFriends(friends.map( (friend, i) => {
-              return <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} ></FriendCard>;   
-            }));
+            setUserFriends(response.data.map((friend, i) => {
+              instance.post("/songs/features", {'token': userToken, 'songs': [friend.song_id]})
+                .then((response2) => {
+                    return <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} emotion={response2.data[0]} />;   
+                })
+                .catch((err) => {
+                    console.log('what could have gone wrong here');
+                });
+            }));            
           } else {
-              console.log("user has no friends");
+            console.log("user has no friends");
           }
       })
       .catch((err) => {
@@ -60,6 +81,25 @@ function Dashboard(cookies) {
       });
     }
   }, [userProfile]);
+
+  // useEffect(() => {
+  //   console.log(userFriends);
+  //   if (userFriends) {
+  //     userFriends = userFriends.map((friend, i) => {
+  //       instance.post("/audio/features", {'token': userToken, 'songs': [friend.song_id]})
+  //         .then((response) => {
+  //             return <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} emotion={response.data[0]} />;   
+  //         })
+  //         .catch((err) => {
+  //             console.log(err.message);
+  //         });
+  //     });
+  //   }
+  //   // friends.map( (friend, i) => {
+  //   //   return <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} ></FriendCard>;   
+  //   // })
+  // }, [userFriends]);
+
 
   return (
     <Container fluid>
