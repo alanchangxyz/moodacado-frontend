@@ -3,6 +3,23 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Card } from "react-bootstrap";
 
 function FriendCard(props) {
+  let emoji;
+  switch (props.emotion) {
+    case (0):
+      emoji = '💪';
+      break;
+    case (1):
+      emoji = '🙂';
+      break;
+    case (2):
+      emoji = '🤠';
+      break;
+    case (3):
+      emoji = '😔';
+      break;
+    default:
+      emoji = '❔';
+  }
   return (
     <Card className="friend-card">
       <Card.Body>
@@ -16,7 +33,7 @@ function FriendCard(props) {
           <img className = "friend-recent-image" src={props.albumcover} />
         </div>
         <div className='emotion-text-container'>
-            <span className='emotion-text'>{props.emotion ? props.emotion : ''}</span>
+            <span className='emotion-text'>{emoji}</span>
         </div>
         <div className = "friend-songname-container">
           <span className="friend-songname">{props.song.length > 20 ? props.song.substring(0,20) + "..." : props.song}</span>
