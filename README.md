@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+# Welcome to Moodacado's Frontend!
+
+This project was built at **LA Hacks 2021** by Ayushi Batwara, Hang Cao, and Alan Chang.
+
+Feel free to checkout our backend, which is built in Express/Flask and incorporates an ML model for classifying songs [here.](https://github.com/alanchangxyz/lahacks2021-backend)
+
+Moodacado helps Spotify users keep tabs on their close friends' music vibes. An easy-to-use user dashboard provides tools for helping users send and accept friend requests, as well as seeing what songs their friends recently played and their corresponding moods as labeled by our machine learning model for song classification.
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +75,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
