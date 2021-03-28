@@ -22,17 +22,24 @@ function Home() {
   )}&response_type=token&show_dialog=false`;
   return (
     <div className="home-container">
-      <div className="moodacado-logo"></div>
-      <h2 className="byline">
-        Moodacado, <i>Moods Via Spotify</i>
-      </h2>
-      <div className="login-button-container">
-        <a href={url}>
-          <div className="spotify-login-button">
-            <div className="spotify-green-logo" />
-            <span className="login-with-spotify">Login with Spotify</span>
+      <div className="home-container-2">
+        <div className="moodacado-logo"></div>
+        <div className="home-container-3">
+          <h2 className="byline-1">
+            Moodacado
+          </h2>
+          <p className="byline-2">
+            Moods via Spotify
+          </p>
+          <div className="login-button-container">
+            <a href={url}>
+              <div className="spotify-login-button">
+                <div className="spotify-green-logo" />
+                <span className="login-with-spotify">Login with Spotify</span>
+              </div>
+            </a>
           </div>
-        </a>
+        </div>
       </div>
 
       <div className="credits-container">
