@@ -1,0 +1,71 @@
+@import '../../globals.css';
+
+table {
+    width: 100%;
+}
+
+.incoming-request-container {
+    background-color: var(--color-mint-green-bg);
+    margin-left: 10px;
+    margin-right: 10px;
+    flex: 1 1 auto;
+    max-width: 50%;
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: var(--font-family);
+    font-size: 1.1em;
+    border-radius: 3px;
+}
+
+.incoming-request-pfp-container {
+    width: 40px;
+}
+
+.incoming-request-pfp {
+    height: 32px;
+    width: 32px;
+    border-radius: 25px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.reject-friend-request, .accept-friend-request {
+    height: 32px;
+    width: 32px;
+    border-radius: 20px;
+    border: none !important;
+    margin-left: 10px;
+    font-family: var(--header-font);
+    font-size: 1.1em;
+    color: #fff;
+}
+
+.reject-friend-request {
+    background-color: #ff0000;
+    line-height: 32px;
+}
+
+.accept-friend-request {
+    background-color: var(--color-spotify-bright-green);
+    line-height: 34px;
+    margin-right: 5px;
+}
+
+.reject-friend-request:hover {
+    transition: 0.25s;
+    cursor: pointer;
+    background-color: #dd0000;
+}
+
+.accept-friend-request:hover {
+    transition: 0.25s;
+    cursor: pointer;
+    background-color: var(--color-spotify-dark-green);
+}
+
+.handle-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}

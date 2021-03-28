@@ -45,6 +45,8 @@
     padding-left: 8px;
     font-family: var(--font-family);
     font-size: 1.1em;
+    color: var(--color-dark-green);
+    background-color: rgb(230, 255, 238);
 }
 
 .user-id-search:focus {

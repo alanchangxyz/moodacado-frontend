@@ -1,11 +1,14 @@
 @import "../../globals.css";
 
 .logo {
-  margin: 0%;
+  /* margin: 0%;
   padding-bottom: 10px;
   background-color: transparent;
   display: block;
-  margin: auto;
+  margin: auto; */
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
 }
 
 .row {
@@ -190,8 +193,9 @@
 
 .friends {
   margin-top: 1em;
+  margin-bottom: 2em;
   background-color: var(--color-sea-green);
-  height: 75%;
+  height: 100vh;
   width: 90%;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -208,7 +212,6 @@
 .inner-friend-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
   flex-wrap: wrap;
   overflow-y: auto;
   height: 90%;
