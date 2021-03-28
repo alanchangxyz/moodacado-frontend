@@ -26,8 +26,7 @@ const IncomingFriendRequests = (prop) => {
     useEffect(() => {
         if (!incomingFriendData) {return;}
         else {
-            console.log(incomingFriendData);
-            setFriendRequestCards(incomingFriendData.map(f => <FriendRequestCard user={f} origin={prop.user} />));
+            setFriendRequestCards(incomingFriendData.map(f => <FriendRequestCard user={f} origin={prop.user} key={f.user_id} />));
         }
     }, [incomingFriendData]);
 
