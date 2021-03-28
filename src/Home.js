@@ -23,7 +23,9 @@ function Home() {
   return (
     <div className="home-container">
       <div className="moodacado-logo"></div>
-      <h2 className="byline">Moodacado, Moods Via Spotify</h2>
+      <h2 className="byline">
+        Moodacado, <i>Moods Via Spotify</i>
+      </h2>
       <div className="login-button-container">
         <a href={url}>
           <div className="spotify-login-button">

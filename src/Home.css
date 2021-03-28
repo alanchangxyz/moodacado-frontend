@@ -23,8 +23,9 @@ a:hover {
 }
 
 h2.byline {
-  padding-top: 20%;
+  padding-top: 0%;
   margin: 0;
+  margin-top: 7%;
   font-family: var(--header-font);
   font-size: 3em;
   font-weight: 800;
@@ -73,11 +74,12 @@ h2.byline {
   background-image: url(images/Moodacado-Logo.png);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 200px;
-  margin: auto;
-  padding-top: 200px;
-  padding-bottom: 25px;
-  height: 215px;
+  background-size: 20%;
+  margin-top: 150px;
+  margin-bottom: 25px;
+  padding-bottom: 20%;
+
+  /* height: 75%; */
 }
 
 span.login-with-spotify {
