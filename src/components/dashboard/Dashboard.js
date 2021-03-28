@@ -14,7 +14,8 @@ function Dashboard(cookies) {
   const history = useHistory();
   // const [inputText, setInputText] = useState("");
   const [userProfile, setUserProfile] = useState(null);
-  const [userFriends, setUserFriends] = useState(<h1>No current friends logged</h1>);
+  const [userFriends, setUserFriends] = useState(null);
+  const [userFriendCards, setUserFriendCards] = useState(<h1>No friends found</h1>)
   const userToken = cookies.cookies.get("spotifyToken");
 
   // const setValue = () => {
@@ -36,9 +37,9 @@ function Dashboard(cookies) {
     .then((response) => {
         setUserProfile(response.data[0]);
       })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    .catch((err) => {
+      console.log(err.message);
+    });
     }, []);
 
   const logOut = () => {
@@ -60,27 +61,42 @@ function Dashboard(cookies) {
   useEffect(() => {
     if (userProfile) {
       instance.post("/profile/friends", {'user_id': userProfile.user_id})
-      .then((response) => {
-          const friends = response.data;
+        .then((response) => {
+          let friends = response.data;
           if (friends.length !== 0) {
-            setUserFriends(response.data.map((friend, i) => {
-              instance.post("/songs/features", {'token': userToken, 'songs': [friend.song_id]})
-                .then((response2) => {
-                    return <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} emotion={response2.data[0]} />;   
-                })
-                .catch((err) => {
-                    console.log('what could have gone wrong here');
-                });
-            }));            
-          } else {
-            console.log("user has no friends");
+            setUserFriends(friends);
           }
-      })
-      .catch((err) => {
-          console.log(err.message);
-      });
-    }
+        })
+        .catch((err) => {
+            console.log(err.message);
+        });
+    }    
   }, [userProfile]);
+
+  useEffect(async () => {
+    if (!userFriends) {return;}
+    console.log('this ran');
+    console.log(userFriends);
+    const getSongFeatures = async (f, i) => {
+      const query = await instance.post("/songs/features", {'token': userToken, 'songs': [f.song_id]});
+      return <FriendCard key={i} name={f.disp_name} profilePicture={f.pfp} song={f.song_name} artist={f.song_artist} albumcover={f.img_url} emotion={query.data[0]} />
+    }
+    let friends = await Promise.all(userFriends.map((friend, i) => getSongFeatures(friend, i)));
+    console.log(friends);
+    setUserFriendCards(friends);
+    console.log(userFriendCards);
+    // friends = await Promise.all(friends.map(async (friend, i) => {
+    //   instance.post("/songs/features", {'token': userToken, 'songs': [friend.song_id]})
+    //     .then((response2) => {
+    //         let f = <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} emotion={response2.data[0]} />;   
+    //         console.log(f);
+    //         return f;
+    //     })
+    //     .catch((err) => {
+    //         console.log(err.message);
+    //     });
+    // }))
+  }, [userFriends]);
 
   // useEffect(() => {
   //   console.log(userFriends);
@@ -158,7 +174,7 @@ function Dashboard(cookies) {
               <h3>Your Friends' Recent Activity </h3>
             </Container>
             <Container className="inner-friend-container">
-              {userFriends}
+              {userFriendCards ? userFriendCards : null}
             </Container>
           </Container>
         </Col>
