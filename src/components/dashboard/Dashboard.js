@@ -75,27 +75,12 @@ function Dashboard(cookies) {
 
   useEffect(async () => {
     if (!userFriends) {return;}
-    console.log('this ran');
-    console.log(userFriends);
     const getSongFeatures = async (f, i) => {
       const query = await instance.post("/songs/features", {'token': userToken, 'songs': [f.song_id]});
       return <FriendCard key={i} name={f.disp_name} profilePicture={f.pfp} song={f.song_name} artist={f.song_artist} albumcover={f.img_url} emotion={query.data[0]} />
     }
     let friends = await Promise.all(userFriends.map((friend, i) => getSongFeatures(friend, i)));
-    console.log(friends);
     setUserFriendCards(friends);
-    console.log(userFriendCards);
-    // friends = await Promise.all(friends.map(async (friend, i) => {
-    //   instance.post("/songs/features", {'token': userToken, 'songs': [friend.song_id]})
-    //     .then((response2) => {
-    //         let f = <FriendCard key={i} name={friend.disp_name} profilePicture={friend.pfp} song={friend.song_name} artist={friend.song_artist} albumcover={friend.img_url} emotion={response2.data[0]} />;   
-    //         console.log(f);
-    //         return f;
-    //     })
-    //     .catch((err) => {
-    //         console.log(err.message);
-    //     });
-    // }))
   }, [userFriends]);
 
   // useEffect(() => {
