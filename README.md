@@ -2,7 +2,7 @@
 
 This project was built at **LA Hacks 2021** by Ayushi Batwara, Hang Cao, and Alan Chang.
 
-Feel free to checkout our backend, which is built in Express/Flask and incorporates an ML model for classifying songs [here.](https://github.com/alanchangxyz/lahacks2021-backend)
+Feel free to checkout our backend, which is built in Express/Flask and incorporates an ML model for classifying songs [here.](https://github.com/alanchangxyz/moodacado-backend)
 
 Moodacado helps Spotify users keep tabs on their close friends' music vibes. An easy-to-use user dashboard provides tools for helping users send and accept friend requests, as well as seeing what songs their friends recently played and their corresponding moods as labeled by our machine learning model for song classification.
 
